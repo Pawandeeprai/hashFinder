@@ -1,0 +1,14 @@
+input {
+  display: block;
+  margin: 0 auto;
+  width: 700px;
+  border: 1px solid red;
+}
+
+.image {
+  display: inline-block;
+  height: 300px;
+  width: 300px;
+  margin: 1px;
+  background-size: cover;
+}
