@@ -8,8 +8,11 @@ $(document).ready(function(){
   // });
 
   $(".search").on("input", $.debounce(function(){
+    var searchTag = createValidTag($(".search").val());
+
     $("div").remove();
-    findHashTag($(".search").val());
+
+    findHashTag(searchTag);
   }, 150, false))
 });
 
@@ -21,19 +24,25 @@ function findHashTag(hashtag){
     type: "GET",
     dataType: 'jsonp',
     success: function(photos){
+
       photos.data.forEach(function(photo){
         var photoUrl = photo.images.standard_resolution.url;
         var likes = photo.likes.count;
         var id = photo.id
+
         $("body").append("<div class='image' id="+ id +"></div>")
         $("#" + id).css("background-image", "url("+ photoUrl + ")")
+
       });
     }
   });
 }
 
-// throttle
-// dbounce
+function createValidTag(inputBoxValue) {
+  var validTag = inputBoxValue.split(" ").join("");
+  validTag = validTag.split("#").join("");
+  return validTag
+}
 
 $.debounce = function(func, wait, immediate) {
     var timeout;
