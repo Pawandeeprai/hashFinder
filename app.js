@@ -33,6 +33,13 @@ function findHashTag(hashtag){
         $("body").append("<div class='image' id="+ id +"></div>")
         $("#" + id).css("background-image", "url("+ photoUrl + ")")
 
+        // if (likes > 10){
+        //   $("#" + id).css("width", "600")
+        //   $("#" + id).css("height", "600")
+        // } else {
+        //   $("#" + id).css("width", "300")
+        //   $("#" + id).css("height", "300")
+        // }
       });
     }
   });
