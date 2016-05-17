@@ -1,28 +1,61 @@
 input {
-  display: block;
+  display: inline-block;
   margin: 0 auto;
+  margin-top: 6px;
   width: 700px;
   height: 40px;
   text-align: center;
   font-size: 25px;
-  border: 1px solid red;
+  border: 1px solid lightgrey;
+  border-radius: 4px;
 
+}
+
+.tool-bar {
+  display: block;
+  margin: 0 auto;
+  width: 815px;
 }
 
 .image {
   display: inline-block;
-  /*height: 300px;*/
-  /*width: 300px;*/
   margin: 1px;
   background-size: cover;
 }
 
-#reload {
-  width: 32px;
-  height: 32px;
-  background-color: blue;
+.button {
+  width: 40px;
+  height: 40px;
   float: right;
-  display: block;
+  display: inline-block;
+  border-radius: 4px;
+  border: 1px solid lightgrey;
+  margin: 5px;
+  background-size: cover;
+}
+
+.blue {
+  background-color: 2673AB;
+}
+
+.white {
+  background-color: white;
+}
+
+.white-repeat {
+  background-image: url("images/repeat-blue.png");
+}
+
+.white-clear {
+  background-image: url("images/clear-blue.png");
+}
+
+.blue-repeat {
+  background-image: url("images/repeat-white.png");
+}
+
+.blue-clear {
+  background-image: url("images/clear-white.png");
 }
 
 .left {

@@ -1,5 +1,13 @@
 $(document).ready(function(){
+  var reapeat = false
+  
+  function repeatCall (){
+    ar searchTag = createValidTag($(".search").val());
 
+    $("img").remove();
+
+    findHashTag(searchTag);
+  }
 
   $(".search").on("input", $.debounce(function(){
     var searchTag = createValidTag($(".search").val());
@@ -9,8 +17,36 @@ $(document).ready(function(){
     findHashTag(searchTag);
   }, 100, false))
 
-  $("#reload").click(function(){
-    $("reload")
+  $("#repeat").click(function(){
+
+    if (repeat) {
+      repeat = false;
+      clearInterval(repeatCall);
+    } else {
+      repeat = true;
+    }
+
+    $("#repeat").toggleClass("white")
+    $("#repeat").toggleClass("blue")
+    $("#repeat").toggleClass("blue-repeat")
+    $("#repeat").toggleClass("white-repeat")
+  });
+
+  $("#clear").click(function(){
+    $("img").remove();
+    $(".search").val("");
+
+    $("#clear").toggleClass("white")
+    $("#clear").toggleClass("blue")
+    $("#clear").toggleClass("blue-clear")
+    $("#clear").toggleClass("white-clear")
+
+    setTimeout(function(){
+      $("#clear").toggleClass("white")
+      $("#clear").toggleClass("blue")
+      $("#clear").toggleClass("blue-clear")
+      $("#clear").toggleClass("white-clear")
+    }, 250)
   });
 });
 
