@@ -1,19 +1,17 @@
 $(document).ready(function(){
 
-  // $(".search").on("input", function(){
-  //
-    // $("div").remove();
-  //   // findHashTag($(".search").val());
-  //
-  // });
 
   $(".search").on("input", $.debounce(function(){
     var searchTag = createValidTag($(".search").val());
 
-    $("div").remove();
+    $("img").remove();
 
     findHashTag(searchTag);
-  }, 150, false))
+  }, 100, false))
+
+  $("#reload").click(function(){
+    $("reload")
+  });
 });
 
 
@@ -30,16 +28,14 @@ function findHashTag(hashtag){
         var likes = photo.likes.count;
         var id = photo.id
 
-        $("body").append("<div class='image' id="+ id +"></div>")
-        $("#" + id).css("background-image", "url("+ photoUrl + ")")
 
-        // if (likes > 10){
-        //   $("#" + id).css("width", "600")
-        //   $("#" + id).css("height", "600")
-        // } else {
-        //   $("#" + id).css("width", "300")
-        //   $("#" + id).css("height", "300")
-        // }
+        if (likes > 15){
+          $(".left").append("<img src=" + photoUrl + " class='image' id="+ id +"></img>")
+          $("#" + id).css("width", "600")
+        } else {
+          $(".right").append("<img src=" + photoUrl + " class='image' id="+ id +"></img>")
+          $("#" + id).css("width", "300")
+        }
       });
     }
   });

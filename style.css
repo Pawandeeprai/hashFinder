@@ -2,13 +2,37 @@ input {
   display: block;
   margin: 0 auto;
   width: 700px;
+  height: 40px;
+  text-align: center;
+  font-size: 25px;
   border: 1px solid red;
+
 }
 
 .image {
-  display: inline-flex;;
-  height: 300px;
-  width: 300px;
+  display: inline-block;
+  /*height: 300px;*/
+  /*width: 300px;*/
   margin: 1px;
   background-size: cover;
+}
+
+#reload {
+  width: 32px;
+  height: 32px;
+  background-color: blue;
+  float: right;
+  display: block;
+}
+
+.left {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+
+.right {
+  width: 50%;
+  float: right;
+  display: inline-block;
 }
