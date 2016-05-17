@@ -1,13 +1,6 @@
 $(document).ready(function(){
-  var reapeat = false
-  
-  function repeatCall (){
-    ar searchTag = createValidTag($(".search").val());
+  var repeatCalled = false
 
-    $("img").remove();
-
-    findHashTag(searchTag);
-  }
 
   $(".search").on("input", $.debounce(function(){
     var searchTag = createValidTag($(".search").val());
@@ -19,11 +12,20 @@ $(document).ready(function(){
 
   $("#repeat").click(function(){
 
-    if (repeat) {
-      repeat = false;
+    if (repeatCalled) {
+      repeatCalled = false;
       clearInterval(repeatCall);
+      debugger;
     } else {
-      repeat = true;
+      repeatCalled = true;
+      var repeatCall = setInterval(function(){
+        var searchTag = createValidTag($(".search").val());
+
+        $("img").remove();
+
+        findHashTag(searchTag);
+      }, 10000);
+      console.log(repeatCall);
     }
 
     $("#repeat").toggleClass("white")
