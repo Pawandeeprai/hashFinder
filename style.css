@@ -6,7 +6,7 @@ input {
   height: 42px;
   text-align: center;
   font-size: 25px;
-  border: 1px solid lightgrey;
+  /*border: 1px solid lightgrey;*/
   border-radius: 4px;
   background: rgba(255, 255, 255, .35)
 }
@@ -50,6 +50,7 @@ body {
   margin: 5px;
   background-size: cover;
   opacity: 0.6;
+  box-shadow: 3px 3px 10px black;
 }
 
 .blue {
