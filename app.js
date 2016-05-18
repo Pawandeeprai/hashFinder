@@ -1,5 +1,6 @@
 $(document).ready(function(){
   var repeatCalled = false
+  var repeatCall;
 
 
   $(".search").on("input", $.debounce(function(){
@@ -18,7 +19,7 @@ $(document).ready(function(){
       debugger;
     } else {
       repeatCalled = true;
-      var repeatCall = setInterval(function(){
+      repeatCall = setInterval(function(){
         var searchTag = createValidTag($(".search").val());
 
         $("img").remove();
@@ -103,4 +104,4 @@ $.debounce = function(func, wait, immediate) {
             func.apply(context, args);
         }
     };
-};;
+};
