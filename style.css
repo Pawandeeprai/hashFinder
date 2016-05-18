@@ -20,7 +20,9 @@ input {
 .image {
   display: inline-block;
   margin: 1px;
-  background-size: cover;
+  /*background-size: cover;*/
+  /*background-size: contain;*/
+  background-size: auto;
 }
 
 .button {

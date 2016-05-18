@@ -6,8 +6,6 @@ $(document).ready(function(){
   $(".search").on("input", $.debounce(function(){
     var searchTag = createValidTag($(".search").val());
 
-    $("img").remove();
-
     findHashTag(searchTag);
   }, 100, false))
 
@@ -56,6 +54,7 @@ $(document).ready(function(){
 
 
 function findHashTag(hashtag){
+  $(".image").remove();
   $.ajax({
     url: "https://api.instagram.com/v1/tags/" + hashtag + "/media/recent?access_token=223904829.1fb234f.8f26219ff30a413d93c7ea118c065e09",
     type: "GET",
@@ -69,12 +68,15 @@ function findHashTag(hashtag){
 
 
         if (likes > 15){
-          $(".left").append("<img src=" + photoUrl + " class='image' id="+ id +"></img>")
-          $("#" + id).css("width", "600")
+          $(".left").append("<div class='image' id="+ id +"></div>");
+          $("#" + id).css("width", "600");
+          $("#" + id).css("height", "600");
         } else {
-          $(".right").append("<img src=" + photoUrl + " class='image' id="+ id +"></img>")
-          $("#" + id).css("width", "300")
+          $(".right").append("<div class='image' id="+ id +"></div>");
+          $("#" + id).css("width", "300");
+          $("#" + id).css("height", "300");
         }
+        $("#" + id).css("background-image", "url(" + photoUrl+ ")");
       });
     }
   });
