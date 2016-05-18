@@ -14,7 +14,6 @@ $(document).ready(function(){
     if (repeatCalled) {
       repeatCalled = false;
       clearInterval(repeatCall);
-      debugger;
     } else {
       repeatCalled = true;
       repeatCall = setInterval(function(){
