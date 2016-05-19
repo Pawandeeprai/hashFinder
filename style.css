@@ -9,8 +9,8 @@ input {
   /*border: 1px solid lightgrey;*/
   border-radius: 4px;
   box-shadow: 3px 3px 10px black;
-  background: rgba(255, 255, 255, .35)
-
+  background: rgba(255, 255, 255, .35);
+  font-family: 'Lobster', cursive;
 }
 
 .tool-bar {
@@ -54,6 +54,19 @@ body {
   background-size: cover;
   opacity: 0.6;
   box-shadow: 3px 3px 10px black;
+}
+
+.hide {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  color: 2673AB;
 }
 
 .blue {
