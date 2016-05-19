@@ -10,7 +10,6 @@ input {
   border-radius: 4px;
   box-shadow: 3px 3px 10px black;
   background: rgba(255, 255, 255, .35);
-  font-family: 'Lobster', cursive;
 }
 
 .tool-bar {
@@ -30,9 +29,18 @@ input {
   border-bottom: 2px solid black;
   position: fixed;
   box-shadow: 3px 3px 10px black;
+  color: white;
+}
+.logo {
+  position: absolute;
+  text-shadow: 3px 3px black;
+  font-size: 40px;
+  bottom: -9px;
+  left: 15px;
 }
 
 body {
+  font-family: 'Lobster', cursive;
   margin: 0px;
 }
 
@@ -57,8 +65,8 @@ body {
 }
 
 .hide {
-  text-align: center;
   font-family: 'Roboto', sans-serif;
+  text-align: center;
   font-weight: bold;
   font-size: 18px;
   width: 20px;
