@@ -8,7 +8,9 @@ input {
   font-size: 25px;
   /*border: 1px solid lightgrey;*/
   border-radius: 4px;
+  box-shadow: 3px 3px 10px black;
   background: rgba(255, 255, 255, .35)
+
 }
 
 .tool-bar {
@@ -26,6 +28,8 @@ input {
   background-image: url("https://pixabay.com/static/uploads/photo/2015/09/05/23/12/blurry-926129_960_720.jpg");
   background-size: cover;
   border-bottom: 2px solid black;
+  position: fixed;
+  box-shadow: 3px 3px 10px black;
 }
 
 body {
@@ -35,9 +39,8 @@ body {
 .image {
   display: inline-block;
   margin: 1px;
-  /*background-size: cover;*/
-  /*background-size: contain;*/
-  background-size: auto;
+  background-size: cover;
+  border: 1px solid black;
 }
 
 .button {

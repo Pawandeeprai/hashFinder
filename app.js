@@ -68,11 +68,11 @@ function findHashTag(hashtag){
 
         if (likes > 15){
           $(".left").append("<div class='image' id="+ id +"></div>");
-          $("#" + id).css("width", "600");
+          $("#" + id).css("width", "100%");
           $("#" + id).css("height", "600");
         } else {
           $(".right").append("<div class='image' id="+ id +"></div>");
-          $("#" + id).css("width", "300");
+          $("#" + id).css("width", "49%");
           $("#" + id).css("height", "300");
         }
         $("#" + id).css("background-image", "url(" + photoUrl+ ")");
