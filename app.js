@@ -7,7 +7,7 @@ $(document).ready(function(){
     var searchTag = createValidTag($(".search").val());
 
     findHashTag(searchTag);
-  }, 100, false))
+  }, 500, false))
 
   $("#repeat").click(function(){
 
@@ -77,17 +77,6 @@ function findHashTag(hashtag){
           photosArray[photoObj.likes] = [photoObj];
         }
 
-
-        if (photoObj.likes > 15){
-          $(".left").append("<div class='image' id="+ photoObj.id +"></div>");
-          $("#" + photoObj.id).css("width", "100%");
-          $("#" + photoObj.id).css("height", "600");
-        } else {
-          $(".right").append("<div class='image' id="+ photoObj.id +"></div>");
-          $("#" + photoObj.id).css("width", "49%");
-          $("#" + photoObj.id).css("height", "300");
-        }
-        $("#" + photoObj.id).css("background-image", "url(" + photoObj.url+ ")");
       });
       photosArray = photosArray.filter(function(value){
         if (value !== undefined){
@@ -95,7 +84,21 @@ function findHashTag(hashtag){
         }
       })
       photosArray = [].concat.apply([], photosArray)
-      console.log(photosArray);
+      console.log(photosArray[photosArray.length - 1]);
+      $(".right").css("background-image", "url(" + photosArray[photosArray.length - 1].url + ")" );
+      $(".left").css("background-image", "url(" + photosArray[photosArray.length - 2].url + ")" );
+
+      photosArray = photosArray.slice(0, photosArray.length - 2);
+
+      photosArray.slice(2, 10).forEach(function(photo){
+        $(".bottom").append("<div class='image' id="+ photo.id +" src="+ photo.url + "></div>");
+        $("#" + photo.id).css("background-image", "url(" + photo.url+ ")");
+      })
+
+      photosArray.slice(10).forEach(function(photo){
+        $(".top").append("<div class='image' id="+ photo.id +" src="+ photo.url + "></div>");
+        $("#" + photo.id).css("background-image", "url(" + photo.url+ ")");
+      })
     }
   });
 }
