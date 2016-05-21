@@ -71,8 +71,11 @@ function findHashTag(hashtag){
           likes : photo.likes.count,
           id : photo.id
         }
-
-        photosArray[photoObj.likes] = photoObj;
+        if (photosArray[photoObj.likes]){
+          photosArray[photoObj.likes].push(photoObj);
+        } else {
+          photosArray[photoObj.likes] = [photoObj];
+        }
 
 
         if (photoObj.likes > 15){
@@ -87,11 +90,11 @@ function findHashTag(hashtag){
         $("#" + photoObj.id).css("background-image", "url(" + photoObj.url+ ")");
       });
       photosArray = photosArray.filter(function(value){
-        if (value !== null){
+        if (value !== undefined){
           return value;
         }
       })
-
+      photosArray = [].concat.apply([], photosArray)
       console.log(photosArray);
     }
   });
