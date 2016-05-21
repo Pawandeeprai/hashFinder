@@ -65,21 +65,23 @@ function findHashTag(hashtag){
     success: function(photos){
 
       photos.data.forEach(function(photo){
-        var photoUrl = photo.images.standard_resolution.url;
-        var likes = photo.likes.count;
-        var id = photo.id
-
-
-        if (likes > 15){
-          $(".left").append("<div class='image' id="+ id +"></div>");
-          $("#" + id).css("width", "100%");
-          $("#" + id).css("height", "600");
-        } else {
-          $(".right").append("<div class='image' id="+ id +"></div>");
-          $("#" + id).css("width", "49%");
-          $("#" + id).css("height", "300");
+        var photoObj = {
+          url : photo.images.standard_resolution.url,
+          likes : photo.likes.count,
+          id : photo.id
         }
-        $("#" + id).css("background-image", "url(" + photoUrl+ ")");
+
+
+        if (photoObj.likes > 15){
+          $(".left").append("<div class='image' id="+ photoObj.id +"></div>");
+          $("#" + photoObj.id).css("width", "100%");
+          $("#" + photoObj.id).css("height", "600");
+        } else {
+          $(".right").append("<div class='image' id="+ photoObj.id +"></div>");
+          $("#" + photoObj.id).css("width", "49%");
+          $("#" + photoObj.id).css("height", "300");
+        }
+        $("#" + photoObj.id).css("background-image", "url(" + photoObj.url+ ")");
       });
     }
   });
