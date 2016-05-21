@@ -19,11 +19,10 @@ $(document).ready(function(){
       repeatCall = setInterval(function(){
         var searchTag = createValidTag($(".search").val());
 
-        $("img").remove();
+        $(".image").remove();
 
         findHashTag(searchTag);
       }, 30000);
-      console.log(repeatCall);
     }
 
     $("#repeat").toggleClass("white");
@@ -33,7 +32,8 @@ $(document).ready(function(){
   });
 
   $("#clear").click(function(){
-    $("img").remove();
+    $(".image").remove();
+    $(".big").css("background-image","");
     $(".search").val("");
 
     $("#clear").toggleClass("white");
@@ -58,6 +58,7 @@ $(document).ready(function(){
 
 function findHashTag(hashtag){
   $(".image").remove();
+  $(".big").css("background-image","");
   $.ajax({
     url: "https://api.instagram.com/v1/tags/" + hashtag + "/media/recent?access_token=223904829.1fb234f.8f26219ff30a413d93c7ea118c065e09",
     type: "GET",
