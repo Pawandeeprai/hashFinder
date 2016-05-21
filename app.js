@@ -63,6 +63,7 @@ function findHashTag(hashtag){
     type: "GET",
     dataType: 'jsonp',
     success: function(photos){
+      var photosArray = [];
 
       photos.data.forEach(function(photo){
         var photoObj = {
@@ -70,6 +71,8 @@ function findHashTag(hashtag){
           likes : photo.likes.count,
           id : photo.id
         }
+
+        photosArray[photoObj.likes] = photoObj;
 
 
         if (photoObj.likes > 15){
@@ -83,6 +86,13 @@ function findHashTag(hashtag){
         }
         $("#" + photoObj.id).css("background-image", "url(" + photoObj.url+ ")");
       });
+      photosArray = photosArray.filter(function(value){
+        if (value !== null){
+          return value;
+        }
+      })
+
+      console.log(photosArray);
     }
   });
 }
